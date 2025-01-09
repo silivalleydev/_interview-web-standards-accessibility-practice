@@ -1,6 +1,4 @@
 import React from 'react';
-import Lottie from 'react-lottie';
-import animationData from '../assets/lottie_files/loading.json';
 
 const LoadingSpinner = ({ isLoading }) => (
     <div
@@ -22,18 +20,6 @@ const LoadingSpinner = ({ isLoading }) => (
                 transform: 'translate(-50%, -50%)',
             }}
         >
-            <Lottie
-                options={{
-                    autoplay: true,
-                    loop: true,
-                    animationData: animationData,
-                    rendererSettings: {
-                        preserveAspectRatio: 'xMidYMid meet'
-                    }
-                }}
-                width={200}
-                height={200}
-            />
         </div>
     </div>
 );

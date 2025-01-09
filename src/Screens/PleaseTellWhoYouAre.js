@@ -41,38 +41,38 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
 
   const signIn = async (e = null, otherpassword = null) => {
-    setInProgress(true);
+    // setInProgress(true);
+    MonsterMainStore.setCurrentUser('id', 'serverLoginResult?.data?.accessToken');
+    // const serverLoginResult = await signInUser({
+    //   adminId: id,
+    //   password: otherpassword || password,
+    // });
 
-    const serverLoginResult = await signInUser({
-      adminId: id,
-      password: otherpassword || password,
-    });
+    // switch (serverLoginResult.status) {
+    //   case "UNAVAILABLE_FOR_LEGAL_REASONS":
+    //   case "UPGRADE_REQUIRED":
+    //     alert(serverLoginResult?.data?.note);
+    //     setInProgress(false);
+    //     setIsChangePassword(true);
+    //     return;
 
-    switch (serverLoginResult.status) {
-      case "UNAVAILABLE_FOR_LEGAL_REASONS":
-      case "UPGRADE_REQUIRED":
-        alert(serverLoginResult?.data?.note);
-        setInProgress(false);
-        setIsChangePassword(true);
-        return;
+    //   case "BAD_REQUEST":
+    //   case "UNAUTHORIZED":
+    //   case "LOCKED":
+    //   case "GONE":
+    //     alert(serverLoginResult?.data?.note);
+    //     setInProgress(false);
+    //     return;
 
-      case "BAD_REQUEST":
-      case "UNAUTHORIZED":
-      case "LOCKED":
-      case "GONE":
-        alert(serverLoginResult?.data?.note);
-        setInProgress(false);
-        return;
+    //   case "OK":
+    //     loginCallback(id);
 
-      case "OK":
-        loginCallback(id);
-        MonsterMainStore.setCurrentUser(id, serverLoginResult?.data?.accessToken);
-        break;
+    //     break;
 
-      default:
-        alert("로그인에 실패했습니다.");
-        setInProgress(false);
-    }
+    //   default:
+    //     alert("로그인에 실패했습니다.");
+    //     setInProgress(false);
+    // }
   };
 
 
@@ -153,7 +153,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ color: 'black', fontWeight: 'bold' }}>로그인</div>
                 {isDevEnv && <div style={{ color: 'red', fontWeight: 'bold' }}>(개발환경)</div>}
-                <img src={logo} style={{ height: 15 }} />
+                <img src={logo} alt="logo-img" style={{ height: 15 }} />
               </div>
             }
           />

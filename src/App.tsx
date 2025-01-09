@@ -2,8 +2,6 @@ import React, { Component, Suspense } from "react";
 import { observable } from "mobx";
 import { observer, inject } from "mobx-react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Lottie from "react-lottie";
-import * as animationData from "./assets/lottie_files/login.json";
 import { CircularProgress } from "@material-ui/core";
 import { getTokenFromCookie } from "./utils/soonUtill";
 import LoadingSpinner from "./Components/LoadingSpinner";
@@ -41,42 +39,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.checkAccessToken();
+    // this.checkAccessToken();
   }
 
   render() {
     if (this.whoAmI === "") {
       return (
         <div style={{ width: "100vw", height: "100vh" }}>
-          <Lottie
-            options={{
-              animationData: animationData,
-              rendererSettings: {
-                preserveAspectRatio: "xMidYMid meet",
-              },
-            }}
+
+          <PleaseTellWhoYouAre
+            window={window}
+            loginCallback={(displayName) => (this.whoAmI = displayName)}
           />
-          {this.loadingToken ? (
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                left: 0,
-                top: 0,
-                bottom: 0,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CircularProgress />
-            </div>
-          ) : (
-            <PleaseTellWhoYouAre
-              window={window}
-              loginCallback={(displayName) => (this.whoAmI = displayName)}
-            />
-          )}
+
         </div>
       );
     }
