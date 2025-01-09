@@ -4,7 +4,6 @@ import "./scss/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {Provider} from 'mobx-react'
-// import MomentUtils from '@date-io/moment'
 
 import MonsterMainStore from './store/MonsterMainStore'
 import ReservationStore from './store/ReservationStore'

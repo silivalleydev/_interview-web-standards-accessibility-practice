@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import logo from "../image/ic_soon_main_logo.png";
 
-import  Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card"
+import CardHeader from "@material-ui/core/CardHeader"
+import CardContent from "@material-ui/core/CardContent"
 import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
 import { signInUser } from "../api/users";
 import Grid from '@mui/material/Grid';
 import { usePRD } from "../api/requestApi";
-import Card from "@material-ui/core/Card"
-import CardHeader from "@material-ui/core/CardHeader"
-import CardContent from "@material-ui/core/CardContent"
 
 const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
@@ -44,6 +44,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
 
   const signIn = async (e = null, otherpassword = null) => {
+    // setInProgress(true);
     MonsterMainStore.setCurrentUser('id', 'serverLoginResult?.data?.accessToken');
     loginCallback('id');
   };
@@ -83,7 +84,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
           <CardContent>
             <div className="sign-in-box" >
-              <div>
+              <Grid container rowGap={3} >
 
                 <TextField
                   InputLabelProps={{
@@ -114,7 +115,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
                   }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                </div>
+              </Grid>
 
               <div>
                 <Button

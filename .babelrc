@@ -2,6 +2,15 @@
     "presets": ["@babel/preset-env"],
     "plugins": [
       ["@babel/plugin-proposal-decorators", { "legacy": true }],
-      "@babel/plugin-proposal-class-properties"
+      ["@babel/plugin-transform-class-properties", { "loose": true }],
+      // [
+      //   "import",
+      //   {
+      //     "libraryName": "@material-ui/core",
+      //     "libraryDirectory": "esm",
+      //     "camel2DashComponentName": false
+      //   },
+      //   "material-ui-core"
+      // ],
     ]
 }
