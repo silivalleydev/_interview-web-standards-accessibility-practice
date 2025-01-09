@@ -1,0 +1,32 @@
+.nps-resultrow {
+    border-bottom: 1px solid #999;
+    &.nps-title {
+        border-bottom: 2px solid #333;
+    }
+    > div {
+        display: flex;
+        flex: 1;
+        padding: 8px;
+        &.selectedNpsAreYouRecommandFriendsDetailReasons {
+            flex: 3;
+        }
+        &.uid {
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+            // word-wrap: normal;
+            // width: 100px;
+            overflow: overlay;
+        }
+        &:not(:last-child) {
+            border-right: 1px solid #999;
+        }
+
+        &.phoneNumber {
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+            // word-wrap: normal;
+            // width: 100px;
+            overflow: overlay;
+        }
+    }    
+}
