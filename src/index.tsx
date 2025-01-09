@@ -4,8 +4,7 @@ import "./scss/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {Provider} from 'mobx-react'
-import {MuiPickersUtilsProvider} from '@material-ui/pickers'
-import MomentUtils from '@date-io/moment'
+// import MomentUtils from '@date-io/moment'
 
 import MonsterMainStore from './store/MonsterMainStore'
 import ReservationStore from './store/ReservationStore'
@@ -16,9 +15,9 @@ ReactDOM.render(
   ReservationStore={ReservationStore}
   PaymentStore={PaymentStore}
 >
-  <MuiPickersUtilsProvider utils={MomentUtils}>
+  {/* <@material-ui/pickers > */}
     <App />
-  </MuiPickersUtilsProvider>
+  {/* </MuiPickersUtilsProvider> */}
 </Provider>,
   document.getElementById("root")
 );

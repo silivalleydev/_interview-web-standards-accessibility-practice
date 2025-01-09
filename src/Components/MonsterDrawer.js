@@ -155,18 +155,11 @@ function MonsterDrawer(props) {
   const history = useHistory();
   const onClickLogout = async () => {
 
-    try {
-      const logoutResult = await LogoutUser()
-      if (logoutResult.status === "OK") {
-        deleteCookie('@accessToken')
-        deleteCookie('@refreshToken')
-        localStorage.setItem("@id", "");
-        props.clear();
-        history.push("/");
-      }
-    } catch (error) {
-      console.log('로그아웃 실패')
-    }
+    deleteCookie('@accessToken')
+    deleteCookie('@refreshToken')
+    localStorage.setItem("@id", "");
+    props.clear();
+    history.push("/");
 
 
 

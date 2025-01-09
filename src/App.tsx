@@ -2,8 +2,6 @@ import React, { Component, Suspense, startTransition } from "react";
 import { observable } from "mobx";
 import { observer, inject } from "mobx-react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import { CircularProgress } from "@material-ui/core";
-import { getTokenFromCookie } from "./utils/soonUtill";
 import LoadingSpinner from "./Components/LoadingSpinner";
 import PleaseTellWhoYouAre from "./Screens/PleaseTellWhoYouAre";
 
@@ -26,7 +24,7 @@ class App extends Component {
 
   async checkAccessToken() {
     const id = localStorage.getItem("@id");
-    const accessToken = getTokenFromCookie("@accessToken");
+    const accessToken = localStorage.getItem("@accessToken");
     if (id) {
       startTransition(() => {
         this.whoAmI = id;

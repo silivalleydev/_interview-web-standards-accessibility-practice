@@ -6,7 +6,7 @@ import moment from "moment";
 import { Button } from "@material-ui/core";
 import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
-import { KeyboardDatePicker } from "@material-ui/pickers";
+// import { KeyboardDatePicker } from "@material-ui/pickers";
 
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { getActiveJob, getApplyListBo, getRegisteredJobToday, getRegistereJobsdAtDate } from "../api/map";
@@ -327,7 +327,7 @@ const SoonMonsterMaps = ({ MonsterMainStore }) => {
           </Button>
 
           <p style={{ fontWeight: "bold", color: "#3f51b5", marginTop: 20 }}>Number of jobs: {markersData.length}</p>
-          <KeyboardDatePicker
+          {/* <KeyboardDatePicker
             variant="static"
             margin="normal"
             id="date-picker-dialog"
@@ -338,7 +338,7 @@ const SoonMonsterMaps = ({ MonsterMainStore }) => {
             KeyboardButtonProps={{
               "aria-label": "change date",
             }}
-          />
+          /> */}
         </div>
       </div>
       {/* <LoadingSpinner /> */}

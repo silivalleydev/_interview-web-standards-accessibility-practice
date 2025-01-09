@@ -2,17 +2,16 @@ import React, { useEffect, useState } from "react";
 
 import TextField from "@material-ui/core/TextField";
 import logo from "../image/ic_soon_main_logo.png";
-import CardHeader from "@material-ui/core/CardHeader";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+
 import  Button from "@material-ui/core/Button";
-import { inject } from "mobx-react/";
+import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
 import { signInUser } from "../api/users";
 import Grid from '@mui/material/Grid';
 import { usePRD } from "../api/requestApi";
-const PasswordChange = React.lazy(() => import("./PasswordChange"));
+import Card from "@material-ui/core/Card"
+import CardHeader from "@material-ui/core/CardHeader"
+import CardContent from "@material-ui/core/CardContent"
 
 const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
@@ -45,86 +44,9 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
 
   const signIn = async (e = null, otherpassword = null) => {
-    // setInProgress(true);
     MonsterMainStore.setCurrentUser('id', 'serverLoginResult?.data?.accessToken');
     loginCallback('id');
-    // const serverLoginResult = await signInUser({
-    //   adminId: id,
-    //   password: otherpassword || password,
-    // });
-
-    // switch (serverLoginResult.status) {
-    //   case "UNAVAILABLE_FOR_LEGAL_REASONS":
-    //   case "UPGRADE_REQUIRED":
-    //     alert(serverLoginResult?.data?.note);
-    //     setInProgress(false);
-    //     setIsChangePassword(true);
-    //     return;
-
-    //   case "BAD_REQUEST":
-    //   case "UNAUTHORIZED":
-    //   case "LOCKED":
-    //   case "GONE":
-    //     alert(serverLoginResult?.data?.note);
-    //     setInProgress(false);
-    //     return;
-
-    //   case "OK":
-    //     loginCallback(id);
-
-    //     break;
-
-    //   default:
-    //     alert("로그인에 실패했습니다.");
-    //     setInProgress(false);
-    // }
   };
-
-
-
-  if (isChangePassword) {
-    return (
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-
-
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            width: "100vw",
-            height: "100vh",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: 'hidden'
-
-          }}
-        >
-          <Card variant="outlined">
-            <CardHeader
-              subheader={
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ color: 'black', fontWeight: 'bold' }}>비밀번호 변경</div>
-                  <img src={logo} style={{ height: 15 }} />
-                </div>
-              }
-            />
-            <CardContent>
-              <PasswordChange id={id} originPassword={password} signIn={signIn} setPassword={setPassword} />
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    )
-  }
-
 
 
   return (
@@ -153,18 +75,15 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
       >
 
         <Card variant="outlined">
-          <CardHeader
-            subheader={
-              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ color: 'black', fontWeight: 'bold' }}>로그인</div>
                 {isDevEnv && <div style={{ color: 'red', fontWeight: 'bold' }}>(개발환경)</div>}
                 <img src={logo} alt="logo-img" style={{ height: 15 }} />
               </div>
-            }
-          />
+
           <CardContent>
             <div className="sign-in-box" >
-              <Grid container rowGap={3} >
+              <div>
 
                 <TextField
                   InputLabelProps={{
@@ -195,7 +114,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
                   }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-              </Grid>
+                </div>
 
               <div>
                 <Button

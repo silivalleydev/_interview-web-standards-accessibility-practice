@@ -1,7 +1,6 @@
-import moment from 'moment';
 
 export default {
-    getIsToday: createdAt => moment(createdAt).diff(moment(), 'days') === 0,
+    getIsToday: createdAt => false,
     tellDeveloper: () => alert('개발팀에게 문의하이소'),
     numberWithCommas: x => x?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 };

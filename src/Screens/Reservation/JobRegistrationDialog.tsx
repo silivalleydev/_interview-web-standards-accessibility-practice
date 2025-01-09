@@ -25,7 +25,7 @@ import {
   MenuItem,
 } from '@material-ui/core'
 
-import { KeyboardDatePicker } from '@material-ui/pickers'
+// import { KeyboardDatePicker } from '@material-ui/pickers'
 
 import styled from 'styled-components'
 import { copyJob } from '../../api/jobs'
@@ -240,7 +240,7 @@ const JobRegistrationDialog = ({ job, onClose }) => {
               marginBottom: 16,
             }}
           >
-            <KeyboardDatePicker
+            {/* <KeyboardDatePicker
               disableToolbar
               variant="inline"
               format="MM.DD(ddd)"
@@ -253,7 +253,7 @@ const JobRegistrationDialog = ({ job, onClose }) => {
                 'aria-label': 'change date',
               }}
               style={{ marginRight: 32 }}
-            />
+            /> */}
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
