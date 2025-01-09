@@ -196,7 +196,7 @@ function MonsterDrawer(props) {
       <Divider />
       <List>
         {onDemand.map((item, index) => (
-          <Link key={item.name} to={`/${item.path}`} onClick={changePage.bind(null, item.path)}>
+          <Link key={item.name} to={`/${item.path}`} onClick={changePage?.bind(null, item.path)}>
             <ListItem button selected={currentPage === item.path}>
               {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
               <ListItemText primary={item.name} />
@@ -207,7 +207,7 @@ function MonsterDrawer(props) {
       <Divider />
       {/* <List>
         {logGroup.map((item, index) => (
-          <Link key={item.name} to={`/${item.path}`} onClick={changePage.bind(null, item.path)}>
+          <Link key={item.name} to={`/${item.path}`} onClick={changePage?.bind(null, item.path)}>
             <ListItem button selected={currentPage === item.path}>
               <ListItemText primary={item.name} />
             </ListItem>
@@ -217,7 +217,7 @@ function MonsterDrawer(props) {
       <Divider /> */}
       {/* <List>
         {menuItemsGroup1.map((item, index) => (
-          <Link key={item.name} to={`/${item.path}`} onClick={changePage.bind(null, item.path)}>
+          <Link key={item.name} to={`/${item.path}`} onClick={changePage?.bind(null, item.path)}>
             <ListItem button selected={currentPage === item.path}>
               <ListItemText primary={item.name} />
             </ListItem>
@@ -227,7 +227,7 @@ function MonsterDrawer(props) {
       <Divider /> */}
       <List>
         {menuItemsGroup2.map((item, index) => (
-          <Link key={item.name} to={`/${item.path}`} onClick={changePage.bind(null, item.path)}>
+          <Link key={item.name} to={`/${item.path}`} onClick={changePage?.bind(null, item.path)}>
             <ListItem button selected={currentPage === item.path}>
               {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
               <ListItemText primary={item.name} />

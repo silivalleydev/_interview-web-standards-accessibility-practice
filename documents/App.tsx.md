@@ -593,6 +593,7 @@ class App extends Component {
     }
 
     return (
+      <Suspense fallback={<div>Loading...</div>}>
       <Router>
         <div style={{ display: "flex", flex: 1, flexDirection: "row" }}>
           <MonsterDrawer
@@ -631,6 +632,7 @@ class App extends Component {
           <LoadingSpinner />
         </div>
       </Router>
+            </Suspense>
     );
   }
 }

@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import TextField from "@material-ui/core/TextField";
 import logo from "../image/ic_soon_main_logo.png";
-import { Button, CardContent, Card, CircularProgress, CardHeader } from "@material-ui/core";
-import { inject } from "mobx-react";
+import CardHeader from "@material-ui/core/CardHeader";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import  Button from "@material-ui/core/Button";
+import { inject } from "mobx-react/";
 import { observer } from "mobx-react-lite";
 import { signInUser } from "../api/users";
 import Grid from '@mui/material/Grid';
@@ -43,6 +47,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
   const signIn = async (e = null, otherpassword = null) => {
     // setInProgress(true);
     MonsterMainStore.setCurrentUser('id', 'serverLoginResult?.data?.accessToken');
+    loginCallback('id');
     // const serverLoginResult = await signInUser({
     //   adminId: id,
     //   password: otherpassword || password,

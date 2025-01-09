@@ -1,5 +1,4 @@
 import { observable, action, set } from 'mobx';
-import { findIndex, values } from 'lodash';
 
 class PaymentStore {
     exportData = observable([]);
@@ -10,7 +9,7 @@ class PaymentStore {
     @action setSelectedPayment = (index, value) => set(this.selectedPayments, `${index}`, value);
 
     get ifAnyPaymentGotChecked(){
-        return findIndex(values(this.selectedPayments), payment => payment === true) >= 0;
+        return 0;
     }
 }
 
