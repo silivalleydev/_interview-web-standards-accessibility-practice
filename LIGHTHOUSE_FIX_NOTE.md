@@ -2,61 +2,27 @@
 
 ## 성능 최적화
 
-### React와 React DOM 트리셰이킹 & CDN으로 변경
-- react와 react-dom 패키지의 용량만 1.25MB이기 때문에 이를 번들에서 제외시키면 번들 용량이 엄청 많이 줄게됨
-![alt text](image-1.png)
-- 해결 코드 `config-overrides.js` : 현재 패키지에서는 js지만 보통은 webpack.config.js에서 external에 설정해주면됨
-- `config-overrides.js`
+### 미사용 패키지 제거와 UI 라이브러리 트리셰이킹
+- 미사용 패키지 lodash, lottie 등 편의성을 위해 나온 라이브러리들의 용량이 대체로 높기 때문에 해당 내용을 로직으로 풀면되어 패키지 제거
+- UI라이브러리 @mui/meterial의 트리 셰이킹 가이드에 따라 해당 모듈만 불러오도록 진행
 ```js
-const {
-    addDecoratorsLegacy,
-    override,
-    addWebpackPlugin,
-    addBabelPlugin,
-    addWebpackExternals,
-  } = require('customize-cra');
-  const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-  
-  module.exports = override(
-    ...
-    // Webpack 외부 모듈 설정 (CDN 사용)
-    addWebpackExternals({
-      react: "React", // React를 외부에서 로드
-      "react-dom": "ReactDOM",
-    })
-  );
-  
+--------------------------------------
+(-) import { Input } from "@mui/material";
+--------------------------------------
+import Input from "@mui/material/Input"; // <-하나의 모듈만 가져오도록 import
 ```
-- `webpack.config.js`
+  - 또한 TextField와 같이 많은 기능을 가지는 컴포넌트의 경우 용량이 비대해질 수 있는 포인트이므로 필요한 기능만 가진 컴포넌트를 import 해줄것
+    - TextField를 불러 옴으로서 Modal, InputBase 등등 다양한 컴포넌트가 불러와져 용량만 270kb가 증가하기 떄문에 작은 기능을 가진 Input으로 대체하여 용량을 줄임
 ```js
-const path = require("path");
-
-module.exports = {
-  mode: "production", // 또는 "development"
-  entry: "./src/index.js", // 애플리케이션의 진입 파일
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js", // 생성된 번들 파일 이름
-  },
-  externals: {
-    react: "React", // React를 외부에서 로드
-    "react-dom": "ReactDOM", // ReactDOM을 외부에서 로드
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-    ],
-  },
-};
+--------------------------------------
+(-) import TextField from "@mui/material/TextField"; 
+--------------------------------------
+import Input from "@mui/material/Input"; // <-하나의 모듈만 가져오도록 import
 ```
 
-### 
+#### 결과
+![alt text](image-2.png)
+- Performance 100점 달성!
 
 ## 접근성 수정
 

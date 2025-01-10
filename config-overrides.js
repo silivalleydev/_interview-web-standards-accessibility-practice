@@ -5,6 +5,8 @@ const {
     addWebpackPlugin,
     addBabelPlugin,
     addWebpackExternals,
+    useBabelRc,
+    addWebpackAlias
   } = require('customize-cra');
   const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
   
@@ -23,15 +25,14 @@ const {
   
     // Babel 플러그인 추가: @material-ui/core의 필요한 모듈만 가져오기
     // addBabelPlugin([
-    //     "import",
-    //     {
-    //       libraryName: "@material-ui/core",
-    //       libraryDirectory: "esm", // ES 모듈 경로
-    //       camel2DashComponentName: false
-    //     },
-    //     "material-ui-core"
-    //   ]),
-    
+    //   "import",
+    //   {
+    //     libraryName: "@material-ui/core",
+    //     libraryDirectory: "esm", // ES 모듈 경로
+    //     camel2DashComponentName: false, // CamelCase 유지
+    //   },
+    //   "core"
+    // ]),
 
     // addBabelPlugin([
     //     "import",
@@ -43,20 +44,5 @@ const {
     //     "core"
     // ]),
   
-    // Webpack 외부 모듈 설정 (CDN 사용)
-    addWebpackExternals({
-      react: "React", // React를 외부에서 로드
-      "react-dom": "ReactDOM",
-    }),
-    // (config) => {
-    //     // 트리 셰이킹 활성화
-    //     config.optimization = {
-    //       ...config.optimization,
-    //       usedExports: true, // 사용되지 않는 코드 제거
-    //       sideEffects: true, // package.json의 sideEffects 필드를 활용
-    //     };
-    
-    //     return config;
-    //   }
   );
   

@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import TextField from "@material-ui/core/TextField";
+import Input from "@mui/material/Input";
+import Button from "@mui/material/Button";
 import logo from "../image/ic_soon_main_logo.png";
 
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card"
-import CardHeader from "@material-ui/core/CardHeader"
-import CardContent from "@material-ui/core/CardContent"
 import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
 import { signInUser } from "../api/users";
-import Grid from '@mui/material/Grid';
 import { usePRD } from "../api/requestApi";
 
 const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
@@ -75,36 +71,38 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
         }}
       >
 
-        <Card variant="outlined">
+        <div style={{border: '1px solid lightgray', padding: 16}}>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ color: 'black', fontWeight: 'bold' }}>로그인</div>
                 {isDevEnv && <div style={{ color: 'red', fontWeight: 'bold' }}>(개발환경)</div>}
                 <img src={logo} alt="logo-img" style={{ height: 15 }} />
               </div>
 
-          <CardContent>
+          <div>
             <div className="sign-in-box" >
-              <Grid container rowGap={3} >
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}} >
 
-                <TextField
+              <div style={{ height: 40}}></div>
+                <Input
                   InputLabelProps={{
                     shrink: true,
                   }}
                   required
                   variant="standard"
-                  label="아이디"
+                  placeholder="아이디"
                   fullWidth
                   value={id}
                   onChange={(e) => setId(e.target.value)}
                 />
+                <div style={{ height: 15}}></div>
 
-                <TextField
+                <Input
                   InputLabelProps={{
                     shrink: true,
                   }}
                   required
                   variant="standard"
-                  label="비밀번호"
+                  placeholder="비밀번호"
                   fullWidth
                   type="password"
                   value={password}
@@ -115,7 +113,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
                   }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-              </Grid>
+              </div>
 
               <div>
                 <Button
@@ -131,8 +129,8 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
