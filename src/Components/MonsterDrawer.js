@@ -184,7 +184,7 @@ function MonsterDrawer(props) {
     <div>
       <div style={{ display: "flex", alignItems: "center" }}>
         <img src={logo} width="60%" style={{ margin: 16 }} />
-        <span style={{ fontSize: 16, color: "#574EDF" }}>{` ${packageJson.version}`}{isDevEnv && <div style={{ fontSize: 14, color: 'red', fontWeight: 'bold' }}>{`(${isDevEnv ? "개발환경" : ""})`}</div>}</span>
+        <span style={{ fontSize: 16, color: "#574EDF" }}>{` ${packageJson.version}`}{isDevEnv && <div style={{ fontSize: 14, color: '#FFB8B8', fontWeight: 'bold' }}>{`(${isDevEnv ? "개발환경" : ""})`}</div>}</span>
       </div>
       <Divider />
       <List>

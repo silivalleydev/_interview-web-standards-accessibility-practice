@@ -52,4 +52,21 @@ import Input from "@mui/material/Input"; // <-하나의 모듈만 가져오도�
 </div>
 ```
 
-### Background and foreground colors do not have a sufficient contrast ratio.
+### Background and foreground colors do not have a sufficient contrast ratio.(배경색과 폰트색의 색상 대비가 맞지 않을 때 일어나는 접근성 이슈)
+![alt text](image-3.png)
+
+- 문제 코드
+```js
+<div style={{ backgroundColor: '#ffffff'}}>
+  <div style={{ color: 'red', fontWeight: 'bold' }}>(개발환경)</div>
+</div>
+```
+
+- 해결 코드
+  - [color-contrast](https://dequeuniversity.com/rules/axe/4.10/color-contrast) 에서 WCAG Standard 배경색에 맞는 폰트색을 조절하면서 전부 패스하는 색으로 대체할 것
+<img src="image-5.png" width="400px" height="800px"/>
+```js
+<div style={{ backgroundColor: '#ffffff'}}>
+  <div style={{ color: '#B30000', fontWeight: 'bold' }}>(개발환경)</div>
+</div>
+```
