@@ -1,5 +1,16 @@
 # Lighthouse Performance & Tree Fix Note
 
+- [Lighthouse Performance \& Tree Fix Note](#lighthouse-performance--tree-fix-note)
+  - [성능 최적화](#성능-최적화)
+    - [미사용 패키지 제거와 UI 라이브러리 트리셰이킹](#미사용-패키지-제거와-ui-라이브러리-트리셰이킹)
+      - [결과](#결과)
+  - [접근성 수정](#접근성-수정)
+    - [Image elements do not have \[alt\] attributes(이미지에 alt 설정하지 않아 생긴 이슈)](#image-elements-do-not-have-alt-attributes이미지에-alt-설정하지-않아-생긴-이슈)
+    - [Background and foreground colors do not have a sufficient contrast ratio.(배경색과 폰트색의 색상 대비가 맞지 않을 때 일어나는 접근성 이슈)](#background-and-foreground-colors-do-not-have-a-sufficient-contrast-ratio배경색과-폰트색의-색상-대비가-맞지-않을-때-일어나는-접근성-이슈)
+  - [Best Practices 점수 개선](#best-practices-점수-개선)
+    - [Browser errors were logged to the console(브라우저에 에러콘솔이 수정이 필요한 경우)](#browser-errors-were-logged-to-the-console브라우저에-에러콘솔이-수정이-필요한-경우)
+
+
 ## 성능 최적화
 
 ### 미사용 패키지 제거와 UI 라이브러리 트리셰이킹
@@ -70,3 +81,9 @@ import Input from "@mui/material/Input"; // <-하나의 모듈만 가져오도�
   <div style={{ color: '#B30000', fontWeight: 'bold' }}>(개발환경)</div>
 </div>
 ```
+
+## Best Practices 점수 개선
+
+### Browser errors were logged to the console(브라우저에 에러콘솔이 수정이 필요한 경우)
+- 표시된 에러콘솔과 관련된 내용을 모두 수정하여 개선한다.
+![alt text](image-6.png)

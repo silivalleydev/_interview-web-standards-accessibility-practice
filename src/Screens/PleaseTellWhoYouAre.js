@@ -84,9 +84,6 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
 
               <div style={{ height: 40}}></div>
                 <Input
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                   required
                   variant="standard"
                   placeholder="아이디"
@@ -97,9 +94,6 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
                 <div style={{ height: 15}}></div>
 
                 <Input
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                   required
                   variant="standard"
                   placeholder="비밀번호"
@@ -123,7 +117,7 @@ const PleaseTellWhoYouAre = ({ loginCallback, MonsterMainStore, window }) => {
                   onClick={signIn}
                   style={{ width: "100%", backgroundColor: (!id || !password) ? "gray" : "#574EDF", color: 'white' }}
                 >
-                  {inProgress ? <CircularProgress size={16} /> : "로그인"}
+                  {inProgress ? '로딩중...' : "로그인"}
                 </Button>
 
 
